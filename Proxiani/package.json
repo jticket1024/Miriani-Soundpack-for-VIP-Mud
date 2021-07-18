@@ -1,0 +1,20 @@
+{
+  "name": "proxiani",
+  "version": "2.3.22",
+  "description": "Proxy server designed for optimizing communication between Miriani and VIP Mud",
+  "main": "./src/main.js",
+  "author": "Martin Storsletten",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/main.js -q"
+  },
+  "keywords": [
+    "Miriani",
+    "toastsoft.net",
+    "VIP Mud"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tms88/proxiani.git"
+  }
+}

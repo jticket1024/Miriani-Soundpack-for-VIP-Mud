@@ -1,0 +1,324 @@
+Version 2.3.22, released 2021-03-31:
+* Removed the Proxiani alias. It's easier to just type PX.
+
+Version 2.3.21, released 2021-03-28:
+* Changed the messages when restarting or shutting down Proxiani to make MUDMixer happy.
+
+Version 2.3.20, released 2021-03-25:
+* Character encoding/decoding/converting will now always be disabled for MUDMixer connections. That is to say, MUDMixer connecting to Proxiani.
+
+Version 2.3.19, released 2021-03-24:
+* Fixed compatibility issues with MUDMixer.
+
+Version 2.3.18, released 2021-03-22:
+* Starmap commands will recognize Praelor Onatoznalk instead of Praelor Natoznalk to reflect that name change in Miriani.
+
+Version 2.3.17, released 2021-02-15:
+* Added NodeJS version to the px version command.
+* Addressed a mistake that I made years ago that didn't become an issue until NodeJS 15. Now Proxiani will hopefully work flawlessly with Node 15 as well!
+
+Version 2.3.16, released 2021-01-23:
+* Re jiggered the output of fod, foc, and smd. Also added fox as a command for showing coords, direction, ship name.
+
+Version 2.3.15, released 2021-01-11:
+* Added support for three new Praelor ship classes: Natoznalk, Ijfrlna, and Mugana.
+
+Version 2.3.14, released 2020-08-31:
+* Added Praelor Tazarti to the list of Praelor ships.
+
+Version 2.3.13, released 2020-08-09:
+* Added Praelor Urtra to the list of Praelor ships that Proxiani will recognize.
+
+Version 2.3.12, released 2020-08-06:
+* Added chatServer.autoConnect in config.json, which is automatically set to false when you disconnect from chatServer by typing pc q.
+
+Version 2.3.11, released 2020-08-04:
+* Hopefully fixed issue with Proxiani not auto reconnecting to chat server in some cases where it's supposed to.
+
+Version 2.3.10, released 2020-08-03:
+* Maybe possibly fixed Start.vbs.
+
+Version 2.3.9, released 2020-08-03:
+* Proxiani now supports chat servers that use self-signed certificates for TLS. The user will be prompted to decide whether or not to trust a certificate that can not be automatically verified, either temporarily or permanently. It keeps fingerprints in the config.json file.
+
+Version 2.3.8, released 2020-08-03:
+* OOB messages from chat server will no longer be logged by Proxiani. Whoops.
+
+Version 2.3.7, released 2020-08-03:
+* Proxiani now registers the client's soundpack on the chat server if applicable.
+
+Version 2.3.6, released 2020-08-02:
+* Added TLS support to the chat server integration.
+
+Version 2.3.5, released 2020-08-02:
+* Added data buffering to chat server connections. This prevents long lines of text from being involuntarily split into multiple lines.
+
+Version 2.3.4, released 2020-08-02:
+* Added a helpful message about the syntax for updating credentials when executing a chat server command while it's trying to reconnect to a Proxiani Chat Server.
+* Added QUIT argument to the PC command for terminating the connection to a Proxiani Chat Server.
+
+Version 2.3.3, released 2020-08-02:
+* Added keep-alive for Proxiani Chat Server connections.
+
+Version 2.3.2, released 2020-08-02:
+* Fixed some issues with the Proxiani Chat Server integration. It will no longer believe that the server rejected your login credentials when you successfully hijack an active session.
+
+Version 2.3.1, released 2020-08-01:
+* Successfully connecting to a Proxiani Chat Server using the PC command will now also update the chatServer config.
+
+Version 2.3.0, released 2020-08-01:
+* Added Proxiani Chat Server integration.
+
+Version 2.2.1, released 2020-06-05:
+* Addressed an issue where the config would revert to default settings if you manually updated config.json with invalid JSON data while Proxiani was running.
+* Fixed Proxiani rudely removing custom config keys from config.json. Thanks to anonymous user for reporting this!
+
+Version 2.2.0, released 2020-06-04:
+* Encoding of extended ASCII now uses %& instead of only % for declaring an encoded character. This should reduce the risk of unintentional encoding/decoding. It also means that old versions of Proxiani are not compatible with encoded characters from newer versions of Proxiani starting with this one, and vice versa.
+* Added mapping of horizontal tabs to double spaces since the MOO eats horizontal tabs as if they're tasty treats.
+
+Version 2.1.20, released 2020-05-31:
+* Fixed message about look options that appeared in places with special exit names such as Glibbo's Discount Tester Supply Store.
+
+Version 2.1.19, released 2020-05-30:
+* Added support for mapping local ports to dedicated server configs. Also added support for Miriani's test server which you can connect to by using localhost at port 8888.
+
+Version 2.1.18, released 2020-05-06:
+* Changed the order of output from the fod and foc commands. Now the most significant information is displayed first.
+
+Version 2.1.17, released 2020-05-02:
+* Removed the SPLIT command from Proxiani, as it seems that there is now a SPLIT command in Miriani.
+* Fixed GADZOOKS starships showing as Green when using the SMA command.
+
+Version 2.1.16, released 2020-02-11:
+* Added Buoys to the list of starmap labels that Proxiani will recognize.
+* Removed fd and fc as aliases for Proxiani's starmap-based focusing since they conflict with alternative navigation. The new aliases are fod and foc for directions and coords, respectively.
+
+Version 2.1.15, released 2019-11-30:
+* Added foc command, which is similar to focus except it uses the starmap behind the scenes instead of the focus command. One of the advantages is that Proxiani will remember the focused ship regardless of which room you're in, which might be helpful when multirooming.
+* Proxiani now knows how to handle visual starmaps without using the co argument to bypass it.
+
+Version 2.1.14, released 2019-11-29:
+* Changed the smd command so it works much more like the focus command, except it gives relative directions.
+
+Version 2.1.13, released 2019-11-16:
+* Fixed a bug with the loading of config.json that meant objects in objects didn't get checked for missing values.
+* Changed the server -> ipv6 config option to server -> ipVersion, which is now an integer that can be either 0, 4, or 6. It's 0 by default, which means it will use either IPv4 or IPv6 depending on what's available.
+
+Version 2.1.12, released 2019-11-15:
+* sma, smc, smm, sms, and all the other starmap related commands now work whether sight mode is enabled or disabled. Remember that server-side line wrapping must still be disabled. In Miriani you can toggle line wrapping with the @wrap command.
+
+Version 2.1.11, released 2019-11-08:
+* Out-of-band messages for starmaps will no longer be included if you're not using a registered soundpack.
+* Added an SMM command that lets you see a compact version of starmap metadata.
+
+Version 2.1.10, released 2019-10-26:
+* Extended ASCII and certain CP-1252 characters will no longer be encoded/decoded for out-of-band messages.
+
+Version 2.1.9, released 2019-09-29:
+* Added configuration options for special encoding of extended ASCII.
+
+Version 2.1.8, released 2019-09-15:
+* Added px quit, for closing the current connection to Proxiani.
+
+Version 2.1.7, released 2019-08-31:
+* Made MCP simpleedit filenames pretty again. Yes, now they're both safe and pretty at the same time!
+
+Version 2.1.6, released 2019-08-31:
+* MCP simpleedit now supports references that contain colons and other symbols that are normally not accepted in file paths.
+
+Version 2.1.5, released 2019-05-26:
+* Starmap commands will now recognize new Praelor classes such as Elganamu and Muzatini. I also fixed it so Frnalk shows up as it should in the list of hostile Praelor when using the sma command.
+
+Version 2.1.4, released 2019-05-26:
+* Updated starmap commands so that they work with the new labels (Private Planets and Private Moons). It should also now treat unknown current coordinates as 0, 0, 0.
+
+Version 2.1.3, released 2019-05-09:
+* Made it possible to disregard TLS authorization errors.
+
+Version 2.1.2, released 2019-04-18:
+* By default, px find is now case insensitive. It also shows up to three hits per file now.
+
+Version 2.1.1, released 2019-04-15:
+* Hopefully fixed starmap commands so they work in colony sectors, and other special sectors as well. Somebody let me know if it still doesn't work.
+
+Version 2.1.0, released 2019-04-12:
+* Added support for MCP edit.
+
+Version 2.0.6, released 2019-04-11:
+* Added compatibility with clients and servers that use non standard line terminators.
+
+Version 2.0.5, released 2019-04-08:
+* Added Ortamu and other praelor ship classes to the sma command.
+
+Version 2.0.4, released 2019-03-31:
+* Fixed the room reader so that dark rooms don't trigger the message telling you to fix your look options.
+
+Version 2.0.3, released 2019-03-24:
+* Fixed an issue with sma that categorized Commonwealth ships in the Other category.
+
+Version 2.0.2, released 2019-03-21:
+* Added MCP support. This might be pretty technical but, currently the only package implemented is dns-com-vmoo-client. The plan is to add more packages later, which might result in some new cool features!
+
+Version 2.0.1, released 2019-03-21:
+* Fixed obnoxious error messages being displayed during auto reconnect. Thanks Patric Avery for reporting!
+
+Version 2.0.0, released 2019-03-20:
+* Changed Proxiani OOB messages from proxiani to px. This might break compatibility with soundpacks that rely on Proxiani OOB messages, so please make sure you have the latest version of your soundpack.
+* Added commands sma, smc, smd, smf, sms, and smt. This means that the soundpack no longer needs to map those commands to the smships command, so these things will be less dependent on a soundpack.
+* Majorly refactored the Proxiani core. This means two things. One, there might still be some new unexpected bugs. And two, it makes it much easier to add special transport protocols, such as the datapacker protocol for the upcoming Proxiani Chat Server.
+
+Version 1.0.48, released 2019-03-03:
+* Added a proper configuration framework that you can access by typing px conf. There aren't many options yet, though.
+* Removed px encrypt and px decrypt, since the hosts in Miriani kindly asked me to take that feature out.
+
+Version 1.0.47, released 2019-03-01:
+* Telnet IAC commands will now be passed through instead of rejected. Hopefully that will make Proxiani more compatible with certain mud clients, such as MT.
+
+Version 1.0.46, released 2019-02-28:
+* Fixed auto reconnect not working properly. Thanks to numerous people for reporting this!
+
+Version 1.0.45, released 2019-02-27:
+* Fixed px find so that it shows timestamps more consistently.
+
+Version 1.0.44, released 2019-02-27:
+* Improved performance of px find.
+* Fixed log file writing so that binary encoding is used instead of UTF-8.
+
+Version 1.0.43, released 2019-02-27:
+* Added support for encoding and decoding ASCII characters in the range 127-254 so that they will survive in Miriani.
+
+Version 1.0.42, released 2019-02-26:
+* Changed character encoding from UTF-8 to binary. VIP Mud doesn't seem to support UTF-8 after all, so we might as well go with binary. This should give a slight performance boost.
+
+Version 1.0.41, released 2019-02-26:
+* Added px encrypt and px decrypt, for encrypting and decrypting messages.
+
+Version 1.0.40, released 2019-02-26:
+* Changed px find so it now uses a native NodeJS process instead of PowerShell, since some users had issues with PowerShell.
+
+Version 1.0.39, released 2019-02-24:
+* Fixed it so that Proxiani will permit look options where exits come before the title. Thanks Miriam Valleris for bringing this to my attention!
+
+Version 1.0.38, released 2019-02-24:
+* Added px find, or px f, for searching through all your Proxiani log files. Currently it works by launching a separate PowerShell window.
+
+Version 1.0.37, released 2019-02-24:
+* smships assess, AKA the sma command, will now also show interdictors, proximity weapons, combat drones, and blockades.
+
+Version 1.0.36, released 2019-02-22:
+* Removed px memory, and added px usage instead, for viewing memory and data usage.
+
+Version 1.0.35, released 2019-02-22:
+* px console messages will now carry over to the new instance after px restart.
+* The message box indicating that Proxiani has started will no longer show when you do px restart.
+
+Version 1.0.34, released 2019-02-22:
+* Proxiani will now display a message box when it starts, indicating whether or not it started successfully, or if another instance is already running, or if there was a critical error that crashed Proxiani. The new version of auto start will suppress the message box that says Proxiani started, and you can set it up by running the script called Enable Auto Start.vbs.
+
+Version 1.0.33, released 2019-02-21:
+* Added a textEditor option in Config.json, in case anyone would prefer to use a different text editor when opening logs and stuffs via Proxiani.
+* Added a message box that pops up if an uncaught exception occurs.
+
+Version 1.0.32, released 2019-02-21:
+* Fixed look option alert firing when floating in space. Thanks Yara Yobi for reporting this!
+
+Version 1.0.31, released 2019-02-18:
+* Tiny improvement for px directories.
+* px log files will now include blank lines for readability. Remember that you can turn blank lines on and off with gen-o 16 in Miriani. The option is called Ignore Blank Lines.
+
+Version 1.0.30, released 2019-02-17:
+* Added px conf, for quickly and conveniently opening Proxiani's Config.json file in Notepad.
+
+Version 1.0.29, released 2019-02-17:
+* Tweaked the atsm path finder to prevent lag that would sometimes occur if there were a lot of possibly good paths.
+
+Version 1.0.28, released 2019-02-17:
+* Fixed several rather critical bugs that could crash Proxiani entirely.
+* Added an FS watcher for Config.json. This means that whenever you save the Config.json file while Proxiani is running, then Proxiani will automatically reload the config.
+* This is probably only relevant for developers and beta testers, but I've changed the /m flag for the px restart command to the keyword middleware. It can also be shortened so you can now reload middleware by typing px r m.
+
+Version 1.0.27, released 2019-02-16:
+* Added a split command (since Miriani doesn't have that), for those times when you would like to split a reward with the rest of the crew. It's pretty much the same as the SHARE command, except split will include yourself, which makes it more useful for those times when you want to split a reward with the rest of your crew and keep your share of the reward as well. You can type split to see usage instructions. For technical reasons, it would be more convenient if the hosts in Miriani would add a split command there since then you wouldn't need to specify how many people you're splitting money with. But until that happens, this should do.
+
+Version 1.0.26, released 2019-02-16:
+* More atsm improvements. Better performance, better results, and better alerts.
+
+Version 1.0.25, released 2019-02-15:
+* Presumably fixed issues with auto reconnect not working if a host shuts down Miriani gracefully. I guess we won't know for sure until next time it happens.
+
+Version 1.0.24, released 2019-02-15:
+* Added notification and console logging of TLS authorization errors.
+* Proxiani will now also attempt auto reconnect if Miriani is being gracefully shut down by a host. Plus, it shouldn't spam you down with auto reconnect messages every third second. These things remain to be tested to see if it will actually work flawlessly, though.
+
+Version 1.0.23, released 2019-02-14:
+* Fixed a tiny issue with atsm where it would say acceptable even if the best choice of objects was only 2 units away under certain conditions.
+
+Version 1.0.22, released 2019-02-14:
+* Greatly improved atsm. The pathfinder algorithm is now more intelligent than ever before, and it now also tells you whether or not the best possible path is good, acceptable, or bad.
+
+Version 1.0.21, released 2019-02-12:
+* Tweaked the atsm path finder algorithm. Hopefully it will handle tricky conditions a little bit better now.
+
+Version 1.0.20, released 2019-02-12:
+* Added developerMode as a config option.
+* Added px evaluate, which lets you run JS code arbitrarily in Proxiani. When developer mode is enabled, px ev allows you to access proxy, device, and other key parts of Proxiani.
+* Added an OOB message for indicating that an error occurred in Proxiani. If developer mode is enabled, the stack message will be sent to the connected clients as well. With developer mode disabled, you can still access these error messages using px console.
+* Fixed a few other bugs.
+
+Version 1.0.19, released 2019-02-12:
+* Fixed atsm not counting the first object as one of the pieces for the current goal. Basically, if you type atsm 3, it should show direction for one piece, and distance for the next 2 pieces, not the next 3 pieces.
+* Enhanced the path finder algorithm of atsm. Now it will consider a long list of factors before deciding on a path when you use the atsm command without arguments.
+
+Version 1.0.18, released 2019-02-12:
+* Improved the atsm command. It now lets you specify how many objects you want to scoop from the current grid, and atsm will then find the best path for achieving that goal. It defaults to 3 or how many units of cargo space you have left, whichever is the smallest number.
+
+Version 1.0.17, released 2019-02-11:
+* Added the atsm command, which does the same as the atsm command in the Miriani Soundpack for VIP Mud. Just... much better.
+
+Version 1.0.16, released 2019-02-11:
+* Proxiani will now auto restart if there are no connections when a new version is available.
+* Added px uptime.
+
+Version 1.0.15, released 2019-02-10:
+* Fixed a bug that prevented you from aborting the conf command using @abort.
+
+Version 1.0.14, released 2019-02-09:
+* Changed the message for px log if you open a log from no more than 7 days ago.
+* New log files will now start with a title at the top, indicating the date of the log file.
+
+Version 1.0.13, released 2019-02-09:
+* Fixed a tiny bug that resulted in an innocent traceback under certain conditions. Thanks to Josh Westen for reporting this issue.
+
+Version 1.0.12, released 2019-02-09:
+* Removed the px reload command, and added a /m flag for the px restart command instead.
+* Fixed a bug that caused echo, px echo, and secho to timeout after 15 seconds.
+* Typing px pass will now enable bidirectional pass through mode, meaning everything sent between Miriani and the mud client will be sent as is, without being processed by Proxiani middleware.
+* Changed px path to px dir.
+* Fixed a bug that prevented Proxiani from restarting if you had more than 250 ms of network lag. Thanks to Anny Rain for reporting this!
+
+Version 1.0.11, released 2019-02-04:
+* Changed the message that indicates which log file you open with px log. It now uses an OOB message for say. And also changed some more OOB message stuff along the way.
+
+Version 1.0.10, released 2019-02-04:
+* smc, smf, and sms will no longer announce cuddles if there is at least one ship that is one unit away. Cuddled ships will appear after ships that are one unit away, which will only show if you specify a number of ships to show that is greater than, you guessed it, the number of ships that are one unit away.
+
+Version 1.0.9, released 2019-02-03:
+* smships assess will now recognize High Guard ships.
+
+Version 1.0.8, released 2019-02-03:
+* Fixed some smships bugs. Also made the cuddle notice less verbose if you're only cuddling one starship.
+
+Version 1.0.7, released 2019-02-02:
+* Changed px log to px console, and added px log for opening log files in Notepad. The px log command also supports arguments for specifying either a date, or a number indicating how many days you would like to go back. For instance, px l 3, would show you the log file for three days ago.
+* Increased the number of buffered console messages from 10 to 25.
+
+Version 1.0.6, released 2019-02-02:
+* Added smships full, for those times when you would like to see all the available information about the nearest ship.
+
+Version 1.0.5, released 2019-02-02:
+* Proxiani now lets you specify its user data path by passing it as a command line argument when starting Proxiani. Start.vbs has been updated as well so it will forward the first command line argument.
+* Changed smships name so it shows name/match last.
+
+Version 1.0.4, released 2019-02-02:
+* Added px changelog, for opening the Proxiani changelog file in Notepad.

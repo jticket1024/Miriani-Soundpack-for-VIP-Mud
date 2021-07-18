@@ -1,3 +1,15 @@
+Version 5.14.5, released 2021-07-18:
+Getting everything set up and on a role:
+Everything should go as expected but as always, comm Devante in the game and I'll be happy to help:
+New github can be accessed at: https://github.com/Tezo2/Miriani-Soundpack-for-VIP-Mud
+New download folder is: https://www.dropbox.com/sh/q6xtsxcyjz4t8dd/AACih96CNTVU9xKB8Qr6XfGba?dl=0
+Note for Proxiani users: I'll be pushing all proxiani changes directly to the github folder for the Miriani Soundpack. I won't be forking proxiani. It will be updated over time but for now only as needed. A lot of the features that can will slowly be moving over to Proxiani. If your not using it already, its a good a time to start.
+*Fixed the point unit. You'll get funny readings at first because the long time it hasn't been working you've been gaining points and the preserved variables haven't been here to keep up.
+*Added plod to walk styles
+
+
+
+
 Version 5.14.4, released 2021-04-07:
 * Fixed conf ship 11 not working as expected, maybe.
 
