@@ -241,7 +241,7 @@ Warning, power level has dropped to *~%.^
 %Chr(250)
 Mission objective has been completed in approximately *. Return to base.^
  GetWildcardValues {~@ComputerAction} {~@ComputerSaid};
- MirianiSoundPlay Standard Music\*30~@Ext;
+#If {~@MuteMissionMusic=0} {MirianiSoundPlay Standard Music\*30~@Ext};
  #If {~@UseHitCounter=1} {
   #Var DirectHits {~%If(~%IsNumber(~@DirectHits)=0,0,~@DirectHits)};
   #Var PartialHits {~%If(~%IsNumber(~@PartialHits)=0,0,~@PartialHits)};

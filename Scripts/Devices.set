@@ -159,14 +159,70 @@
  #UnVar PointVar;
  #If {%Length(@OrgPoints)>0} {
 msplay {general\lore\track@ext};
-  #Sub {@LicensePoints license points, @CombatPoints combat points, and @OrgPoints org points.%{CRLF}The difference since last check is @LicensePointsDiff license points, @CombatPointsDiff combat points, and @OrgPointsDiff org points.}
+  #Sub {@LicensePoints license points, @CombatPoints combat points, and @OrgPoints org points.%If(@DisplayPointCalculations=1,"%{CRLF}The difference since last check is @LicensePointsDiff license points, @CombatPointsDiff combat points, and @OrgPointsDiff org points.","")}
  } {
 msplay {general\lore\track@ext};
-  #Sub {@LicensePoints license points and @CombatPoints combat points.%{CRLF}The difference since last check is @LicensePointsDiff license points and @CombatPointsDiff combat points.}
+  #Sub {@LicensePoints license points and @CombatPoints combat points.%if(@DisplayPointCalculations=1,"%{CRLF}The difference since last check is @LicensePointsDiff license points and @CombatPointsDiff combat points.","")}
  };
  SetPreservedVariable LastLicensePoints {@LastLicensePoints};
  SetPreservedVariable LastCombatPoints {@LastCombatPoints};
  SetPreservedVariable LastOrgPoints {@LastOrgPoints}
+} {Main}
+#Trigger {You access * and note you had * license points and * combat points. This information was current as of *. No new information can be obtained until you return to communications range.} {
+ #Var LicensePoints {%If(%Pos(.,%2)>0,%2,%2.0)};
+ #Var CombatPoints {%If(%Pos(.,%3)>0,%3,%3.0)};
+ #Var PointVars {LicensePoints|CombatPoints};
+ #Var PointTmp1 {%NumWords(@PointVars,|)};
+ #While {@PointTmp1>0} {
+  #Var PointVar {%Word(@PointVars,|,@PointTmp1)};
+  #Var Points {@{@PointVar}};
+  #Var LastPointVar {Last@PointVar};
+  #If {%Defined(@LastPointVar)=1} {
+   #Var LastPoints {@{@LastPointVar}};
+   #Var {@LastPointVar} {@Points};
+   #If {%Length(%Word(@Points,.,2))<2} {#Var Points {@{Points}0}};
+   #If {%NumWords(@LastPoints,.)=2} {
+    #If {%Length(%Word(@LastPoints,.,2))<2} {#Var LastPoints {@{LastPoints}0}}
+   };
+   #Var Points {%Replace(@Points,.,)};
+   #Var LastPoints {%Replace(@LastPoints,.,)};
+   #If {%IsNumber(@Points)=1 and %IsNumber(@LastPoints)=1} {
+    #Math PointDiff {@Points-@LastPoints};
+    #If {@PointDiff<0} {
+     #While {%Length(@PointDiff)<4} {#Var PointDiff {-0%Copy(@PointDiff,2)}}
+    } {
+     #While {%Length(@PointDiff)<3} {#Var PointDiff {0@PointDiff}}
+    };
+    #Var PointDiff {%Left(@PointDiff,%Length(@PointDiff)-2).%Right(@PointDiff,2)};
+    #If {%Right(@PointDiff,1)="0"} {
+     #Var PointDiff {%Left(@PointDiff,%Length(@PointDiff)-1)}
+    };
+    #If {%IfWord(@PointDiff,0.0,@CR)=1} {
+     #Var {@{PointVar}Diff} {no}
+    } {
+     #Var {@{PointVar}Diff} {@PointDiff}
+    }
+   } {
+    #Var {@{PointVar}Diff} {an unknown amount of}
+   }
+  } {
+   #Var {@{PointVar}Diff} {an unknown amount of};
+   #Var {@LastPointVar} {@Points}
+  };
+  #Math PointTmp1 {@PointTmp1-1}
+ };
+ #UnVar PointDiff;
+ #UnVar LastPoints;
+ #UnVar LastPointVar;
+ #UnVar Points;
+ #UnVar PointVar;
+msplay {general\lore\track@ext};
+  #Sub {Before leaving communications range on %4, you had @LicensePoints license points and @CombatPoints combat points.};
+  SetPreservedVariable LastLicensePoints {@LastLicensePoints};
+ SetPreservedVariable LastCombatPoints {@LastCombatPoints};
+} {Main}
+#Trigger {Additionally, your private organization had * inter-organization cooperation points. This information was current as of *. No new information can be obtained until you return to communications range.} {
+#Sub {You also had %1 Org Points.}
 } {Main}
 #Trigger {* flick* a switch*} {
  #If {%Pos(:,%0)=0 and %Pos(~, ~",%0)=0 and %IfWord(%Left(%0,1),>| |#|-|[|~(,|)=0} {

@@ -17,6 +17,7 @@ PlayRoundtimeSound:0
 PlayWhenThwarted:0
 AlertOnPlayers:0
 PlayStartupMusic:1
+DisplayPointCalculations:0
 BypassLoginMenu:0
 AutoSave:1
 CommandEcho:1
@@ -42,6 +43,7 @@ HistoryPanning:0
 ModifyShoppingGuide:0
 ShoppingGuideFormatString:[$ITEM ($PRICE)] $POINTS,$COMBATPOINTS at $STORE on $LOCATION
 MissionMode:1
+MuteMissionMusic:0
 UseHitCounter:0
 HitCounterFormatString:Total hits: $TOTALHITS ($DIRECTHITS direct, $PARTIALHITS partial). $DESTROYEDSHIPS ships, and $DESTROYEDDEBRIS debris were destroyed
 UseAlternativeCombatSounds:0

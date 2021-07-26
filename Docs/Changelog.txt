@@ -1,3 +1,17 @@
+Version 5.15.1
+A note to the oldies, and something new for the Newbi's!
+I'm bringing experience levels back! Slowly, but surely. This major version is the beginning of that. Some people miss the flavor text that the game offers, the way the toastsoft hosts intended, so I will try, to the best of my ability, allow them to experience it while still maintaining the packs usefulness as a whole.
+Oldbi Midbi and Newbi are names of total originality... So we're just going to stick with that for now.
+Oldbi will be the pack in its current state, Midbi will have some of the texts with interactions and activities displayed (To be determined) and Newbi will just be everything, minus the small things that make you want to throw your computer out the window because of the pure spam.
+If you have any suggestions on how this could work, better than the old system, things you want added/removed to certain levels or gripes with this system in general, don't hesitate to comm Devante McKenzie or send a lore to ID devank and replies will be sent pronto.
+With that out of the way, onwards to the changes!
+*Added a new conf option in conf gadgets. It allows you to toggle whether you see point unit calculations or not.
+*Modified the text you see when using your point unit out of communications range.  Thanks goes out to Kyle McKenzie, for constantly pushing for it
+* Added a toggle for whether you hear the music played when missions are completed. Conf ship mission, option 4.
+*Added a sound for proximity weapons/blockades/interdictors on GMU. Because these things are normally coupled together in some shape or form, what I've done is made it play, if either of these things are detected.  you'll have to type SMA or read the output to know exactly what was detected.
+* Changed RedCont3. Thanks to Maxine Zantara for providing it.
+
+
 Version 5.14.5, released 2021-07-18:
 Getting everything set up and on a role:
 Everything should go as expected but as always, comm Devante in the game and I'll be happy to help:

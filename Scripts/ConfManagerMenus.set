@@ -121,6 +121,7 @@ CameraPan|N:-4000^4000
 [5] Show sector names as numbers in flight control messages  [~%If(~@ShowFCSectorNamesAsNumbers=1,On,Off)].
 [6] Calculate directions when using directional archaeology dig site scanners  [~%If(~@ArchaeologyCalculateDirection=1,On,Off)].
 [7] In archaeology, show digging depth  [~%Case(~%Eval(~@ShowDiggingDepth+1),Off,Always,Only when you should switch from automatic to regular shovel)].
+[8] Show point calculations when using your point unit [~%If(~@DisplayPointCalculations=1,On,Off)].
 %Chr(250)
 FormatMessageBoards|B
 MessageBoardFormatString|S:*||Use $SENDER for the message sender, $DATE for the date, $REFERENCE for the message reference, $SUBJECT for the subject line, and $VOTES for the votes (if any).
@@ -129,6 +130,7 @@ ShoppingGuideFormatString|S:*
 ShowFCSectorNamesAsNumbers|B
 ArchaeologyCalculateDirection|B
 ShowDiggingDepth|C:0,Off^1,Always^2,Only when you should switch from automatic to regular shovel
+DisplayPointCalculations|B
 }
 
 #Var ConfMenuSocials {Configure socials:
@@ -369,10 +371,12 @@ HistoryLoggingInterval|N:5^100
 [1] Mission mode  [~%If(~@MissionMode=1,On,Off)].
 [2] Use hit counter  [~%If(~@UseHitCounter=1,On,Off)].
 [3] Hit counter formatter string  [~@HitCounterFormatString].
+[4] Mute the music that plays when a mission is successfully completed [~%If(~@MuteMissionMusic=1,On,Off)].
 %Chr(250)
 MissionMode|B
 UseHitCounter|B
 HitCounterFormatString|S:*
+MuteMissionMusic|B
 }
 
 #Var ConfMenuShip {Ship options
