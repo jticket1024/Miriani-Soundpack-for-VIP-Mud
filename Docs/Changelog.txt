@@ -1,3 +1,6 @@
+Version 5.15.3
+Bug fix, sorry about that
+
 Version 5.15.2
 Note: Required sounds version is now 7
 *Changed a few sounds to the soundpack. Which ones, I can't remember right now because it was like a month ago
