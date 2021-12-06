@@ -282,6 +282,17 @@
   }
  }
 } {Main}
+#Trigger {* depress* the cartridge release lever on * and continue* holding it down. A high-pitched whine briefly emanates from the weapon before a loud clicking sound is heard as an empty cartridge falls to the ground.} {
+ #If {%Pos(:,%0)=0 and %Pos(~, ~",%0)=0 and %IfWord(%Left(%0,1),>| |#|-|[|~(,|)=0} {
+  #If {%IfWord(%1,You,|)=1} {
+  #Sub {%1 eject the clip from %3 and it drops to the ground.};
+   msplay General\Combat\discharge@Ext
+  } {
+  #Sub {%1 ejects the clip from %3 and it drops to the ground.};
+   msplay General\Combat\discharge@Ext -10
+  }
+ }
+} {Main}
 #Trigger {A* clicks oddly. It must be out of ammo.} {msplay General\Combat\EmptyGun@Ext} {Main}
 #Trigger {* suddenly begins to power down.} {
  msplay General\Combat\Shutdown*4@Ext;
@@ -515,3 +526,4 @@
   PushMessage Attacks {%1 throws a rock at you!}
  }
 } {Main}
+#TRIGGER {You notice a luminescent orifice.} {msplay general\archaeology\ArtifactHere@Ext} {}

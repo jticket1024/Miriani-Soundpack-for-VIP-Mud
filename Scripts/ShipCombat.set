@@ -142,7 +142,7 @@ Note: You have use hit counter disabled. You can enable this in Conf Ship.}
    #If {@MuteAlertContSounds=1 or @SoundsVersion<4 or %Defined(BlockGreenSantaBoxSound)=1} {
     #GagLine 1 All
    } {
-    MirianiSoundPlay Standard {Ship\Misc\GreenSantaBox.mp3};
+    MirianiSoundPlay Standard {Ship\Misc\GreenSantaBox@Santabox.mp3};
     #If {@SoundIsPlaying=1} {#Var AlertSoundHandle {%PlayHandle}} {#UnVar AlertSoundHandle};
     #Var BlockGreenSantaBoxSound 1;
     #Alarm 60 {#UnVar BlockGreenSantaBoxSound}
@@ -344,9 +344,9 @@ Note: You have use hit counter disabled. You can enable this in Conf Ship.}
  #Sub {Hit by %1.};
  mwplay Ship\Combat\YouHit*11@Ext 20
 } {Main|Starship}
-#Trigger {There is a gut-wrenching clang as the ship collides with * at high velocity.} {
+#TRIGGER {There is a gut-wrenching clang as the ship collides with * at high velocity.} {
  mwplay Ship\Combat\Rebound*5@Ext;
- #Sub {Collition with %1.}
+ #Sub {Collision with %1.}
 } {Main|Starship}
 #Trigger {Combat Drone Control:} {
  #GagLine 1 Voice;

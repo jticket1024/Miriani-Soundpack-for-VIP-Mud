@@ -133,7 +133,7 @@
       #If {"read"=*@HistoryTmp1} {
        #Say {Message %Min(%3,@HistoryTmp4) to %Max(%3,@HistoryTmp4) in the %Replace(@HistoryTmp2,0, ) buffer:@HistoryTmp5}
       } {
-       #Clipboard {%Copy(@HistoryTmp5,3)};
+       #Clipboard {%Copy(@HistoryTmp4,3)};
        #Say {Copied message %Min(%3,@HistoryTmp4) to %Max(%3,@HistoryTmp4) from the %Replace(@HistoryTmp2,0, ) buffer} NoDisplay
       }
      } {

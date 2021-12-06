@@ -7,6 +7,88 @@
 #Var AcvCoordY {}
 #Var AcvCoordZ {}
 
+#Alias CalculateRelativeNumericDir {
+ #if {%IsNumber(%1)=0 OR %IsNumber(%2)=0 OR %IsNumber(%3)=0 OR %IsNumber(%4)=0 OR %IsNumber(%5)=0 OR %IsNumber(%6)=0} {
+  #Var RelativeNumericDir {%1 %2 %3}
+ } {
+  #Var RelativeNumericDir {};
+  #Var RelativeNumericDirPrefix {};
+  #Math RelativeNumericTmpX {%max(%1,%4) - %min(%1,%4)};
+  #Math RelativeNumericTmpY {%max(%2,%5) - %min(%2,%5)};
+  #Math RelativeNumericTmpZ {%max(%3,%6) - %min(%3,%6)};
+  #If {(@RelativeNumericTmpX>1 OR @RelativeNumericTmpY>1 OR @RelativeNumericTmpZ>1) OR (@RelativeNumericTmpX=0 AND @RelativeNumericTmpY=0 AND @RelativeNumericTmpZ=0)} {
+   #if {@RelativeNumericTmpX>1 OR @RelativeNumericTmpY>1 OR @RelativeNumericTmpZ>1} {
+    #if {@RelativeNumericTmpX>0} {
+     #var RelativeNumericTmpXDir {@RelativeNumericTmpX%if(%4 > %1,W,E)};
+     #If {@RelativeNumericTmpY>0 OR @RelativeNumericTmpZ>0} {
+     #var RelativeNumericTmpXDir {@RelativeNumericTmpXDir, }
+     }
+    } {
+     #var RelativeNumericTmpXDir {}
+    };
+    #if {@RelativeNumericTmpY>0} {
+     #var RelativeNumericTmpYDir {@RelativeNumericTmpY%if(%5 > %2,N,S)};
+     #If {@RelativeNumericTmpZ>0} {
+     #var RelativeNumericTmpYDir {@RelativeNumericTmpYDir, }
+     }
+    } {
+     #var RelativeNumericTmpYDir {}
+    };
+    #if {@RelativeNumericTmpZ>0} {
+     #var RelativeNumericTmpZDir {@RelativeNumericTmpZ%if(%6 > %3,U,D)}
+    } {
+     #var RelativeNumericTmpZDir {}
+    };
+    #var RelativeNumericDir {@RelativeNumericTmpXDir@RelativeNumericTmpYDir@RelativeNumericTmpZDir}
+   } {
+    #var RelativeNumericDir {C}
+   }
+  } {
+   #if {%3>%6} {
+    #var RelativeNumericDirPrefix {-}
+   };
+   #if {%3<%6} {
+    #var RelativeNumericDirPrefix {+}
+   };
+   #if {%1=%4 AND %2=%5} {
+    #var RelativeNumericDir 5
+   } {
+    #if {%1=%4} {
+     #if {%2>%5} {
+      #var RelativeNumericDir 2
+     } {
+      #var RelativeNumericDir 8
+     }
+    } {
+     #if {%2=%5} {
+      #if {%1>%4} {
+       #var RelativeNumericDir 6
+      } {
+       #var RelativeNumericDir 4
+      }
+     } {
+      #if {%1>%4} {
+       #if {%2>%5} {
+        #var RelativeNumericDir 3
+       } {
+        #var RelativeNumericDir 9
+       }
+      } {
+       #if {%2>%5} {
+        #var RelativeNumericDir 1
+       } {
+        #var RelativeNumericDir 7
+       }
+      }
+     }
+    }
+   };
+   #var RelativeNumericDir {@RelativeNumericDirPrefix@RelativeNumericDir}
+  }
+ }
+} {}
+
+
 #Alias ACVMove {
  #If {%IsNumber(%Left(%1,1))=1} {
   #Var ACVTmp1 {%1};

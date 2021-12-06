@@ -507,3 +507,6 @@ msplay Ship\Misc\Door@{DoorTmp1}Stateroom@Ext
 
 #Alias rem {#Exec {remove%RTrim( %0)}}
 #Alias wa {#Exec {walk%RTrim( %0)}}
+#TRIGGER {A low hiss resonates from * as it begins filling *.} {#GagLine Voice;
+msplay Ship\Misc\AirStart@Ext} {}
+#TRIGGER {An indicator light on * turns to green and the low hiss fades away.} {msplay Ship\Misc\AirEnd@Ext} {}

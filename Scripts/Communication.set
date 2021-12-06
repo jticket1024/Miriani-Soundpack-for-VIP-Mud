@@ -494,6 +494,16 @@ Omega Sector:115
      #Var TmpCommunication1 {}
     }
    };
+   #If {@TmpCommunication1=*"* in a* voice" AND %IfWord("I'm receiving a report on the old uplink",@TmpCommunication3,)} {
+    MirianiSoundPlay {Comms Framework} General\Socials\DroidSpeak@Ext;
+    #If {@UseAsteroidDroid=1} {
+     MirianiSoundPlay {Comms Framework} General\Misc\DoorChime@Ext
+    };
+    #Sub {%1, @TmpCommunication3};
+    PushMessage Say {%1, @TmpCommunication3};
+    PushMessage RP {%0};
+    #Var TmpCommunication1 {}
+   };
    #If {@TmpCommunication1=*"* says in a* voice"} {
     MirianiSoundPlay {Comms Framework} General\Socials\DroidSpeak@Ext;
     #Sub {%1, @TmpCommunication3};

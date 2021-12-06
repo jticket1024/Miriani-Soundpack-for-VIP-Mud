@@ -158,6 +158,8 @@ BypassSocialToggles|B
 [10] Play the spam sound when Miriani indicates that you're spamming commands  [~%If(~@SpamAlert=1,On,Off)].
 [11] Alternative combat sounds  [~%If(~@UseAlternativeCombatSounds=1,On,Off)].
 [12] Play empty ammo alert sound  [~%If(~@PlayEmptyAmmoAlert=1,On,Off)].
+[13] Use alternative sound for uplinks on droids  [~%If(~@UseAsteroidDroid=1,On,Off)].
+[14] Select which version of the Green Santa Box music should be played.
 %Chr(250)
 Silent|E::#Alarm 0 {MasterMute {~@ConfOptionValue}}
 Vol|N:0^100:SetMasterVolume
@@ -171,6 +173,8 @@ RandomisePlay|B
 SpamAlert|B::#Class SpamAlerts {~%If(~@SpamAlert=1,Enable,Disable)}
 UseAlternativeCombatSounds|B
 PlayEmptyAmmoAlert|B
+UseAsteroidDroid|B
+SantaBox|C:0,Regular Boring Jinglebell sounds^1,The original jingle bells music^2,The new and improved arabic jingle bells! Suggested by Ali McKenzie
 }
 
 #Var ConfMenuRoom {Room options:

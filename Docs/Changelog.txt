@@ -1,3 +1,16 @@
+Version 5.15.2
+Note: Required sounds version is now 7
+*Changed a few sounds to the soundpack. Which ones, I can't remember right now because it was like a month ago
+*Added a differen't sound to droids when transmitting through asteroid uplink. It is toggleable in one of the conf options, can't remember which one at this current moment. Thanks goes to Ryan Salvatore.
+*Added a sound to ejecting clips
+*Hopefully fixed ACV when scanning and stuff. Tell me if something breaks
+*added a few more walkstyles
+*Fixed a tiny typo when ships collide with objects, its now collision instead of collition
+*a bunch of other things I forgot to document because I'm lazy
+*There is now a menu of different christmas jingle bell red light music. Thanks to Ali, we have an arabic one, the original loud one, and of course, to the love of everyones sanity, just a jingley jingley bell
+*Now a sound for the room on the new missionhs, to make it easier to find
+*Now a sound for discarding bags and such, to help out with sabotages as well
+
 Version 5.15.1
 A note to the oldies, and something new for the Newbi's!
 I'm bringing experience levels back! Slowly, but surely. This major version is the beginning of that. Some people miss the flavor text that the game offers, the way the toastsoft hosts intended, so I will try, to the best of my ability, allow them to experience it while still maintaining the packs usefulness as a whole.
