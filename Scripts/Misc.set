@@ -69,6 +69,18 @@
  msplay General\Misc\HostOut*3@Ext;
  #Sub {%1 disappears.}
 } {Main}
+#Trigger {A mysterious lump of coal explodes in your hand!} {
+msplay Ship\Misc\InternalExpl9@Ext
+} {Main}
+#Trigger {A loud crack emanates from a mysterious lump of coal as it explodes!} {
+msplay Ship\Misc\InternalExpl6@Ext
+} {Main}
+#Trigger {*'s hand promptly explodes!} {
+msplay Ship\Misc\InternalExpl6@Ext
+} {Main}
+#Trigger {* gives you a mysterious lump of coal.} {
+  msplay General\Misc\LeftPerson@Ext
+} {Main}
 #Trigger {I don't understand that.} {
  #If {@GagDontUnderstandMessages=1} {#GagLine 1 All};
  msplay General\Misc\Command*10@Ext;
@@ -511,3 +523,4 @@ msplay Ship\Misc\Door@{DoorTmp1}Stateroom@Ext
 msplay Ship\Misc\AirStart@Ext} {}
 #TRIGGER {An indicator light on * turns to green and the low hiss fades away.} {msplay Ship\Misc\AirEnd@Ext} {}
 #TRIGGER {You toss away *.} {msplay General\Misc\TossAway@Ext} {}
+#TRIGGER {* remove* * from you*.} {msplay General\Misc\LeftPerson@Ext} {Main}

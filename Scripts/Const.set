@@ -212,4 +212,4 @@ thousand:1000
 #Var DocsPath {%replace(%replace(@ScriptPath,\,/),@ChangelogFilePath,"")/Docs}
 #Var ChangelogFilePath {@DocsPath/Changelog.txt}
 #Var DecimalChar {%If(%IsNumber(1.4)=1,.,~,)}
-#Var VirtualDisplays {Internal camera feeds|External camera feeds|Flight control scanners|Intrasector combat messages|Metafrequency messages|Communicator messages}
+#Var VirtualDisplays {Internal camera feeds|External camera feeds|Flight control scanners|Intrasector combat messages|Metafrequency messages|Communicator messages|Weapon fire}

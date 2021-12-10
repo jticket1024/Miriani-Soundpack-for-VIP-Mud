@@ -149,7 +149,8 @@
    #Var GunOutput {@GunOutput%CRLF@GunBufferedOutput};
    #UnVar GunBufferedOutput
   };
-  #Sub {@GunOutput};
+DisplayPrint 7 {@GunOutput} {%0};
+  #Sub {@DisplayString};
   #UnVar GunTmp1;
   #UnVar GunOutput;
   #UnVar StandardGunOutput;

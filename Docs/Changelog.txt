@@ -1,3 +1,11 @@
+Version 5.15.4
+This is just a script update, no need to redownload sounds
+*Fixed the required sounds version with the publishing script, it should work now, wups
+*There is at long last, finally a virtual display for gunfire! It currently doesn't discriminate between you and others so do be warey when you turn it on. vd 7 is what your looking for!
+*Added a sound for when people remove something from your person/hand. Thank you Ali McKenzie for requesting this, multiple times a day
+*Added sounds to Santa Claus (and other people) manipulating mysterious lumps of coal. Now it plays warning sound if you got given the coal, and a few explosions that sound like your house is being demolished when it explodes.  Don't explode!
+*Fixed it so now when you are shot by a ship which has the dark red box with green trim (The laser changing box) installed, the propper sound is played, along with the substituted text "Hit by <shipnames> alternating red and green laser fire"
+
 Version 5.15.3
 Bug fix, sorry about that
 

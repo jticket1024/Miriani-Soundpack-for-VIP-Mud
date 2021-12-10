@@ -196,6 +196,10 @@ Note: You have use hit counter disabled. You can enable this in Conf Ship.}
  mwplay Ship\Combat\YouHit*11@Ext;
  #Sub {Hit by %1}
 } {Main|Starship}
+#Trigger {The room is bathed in brilliant red and green light as alternating laser fire from * impacts the hull.} {
+ mwplay Ship\Combat\YouHit*11@Ext;
+ #Sub {Hit by %1's alternating red and green laser fire}
+}  {Main|Starship}
 #Trigger {The room is filled with * as the laser turrets are fired.} {
  mwplay Ship\Combat\Laser*17@Ext;
  #GagLine 1 All
