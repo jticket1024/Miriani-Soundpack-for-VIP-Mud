@@ -119,12 +119,14 @@ The target is no longer available. Probable cause for lost sensor contact is des
   #Math TotalShips {~@TotalShips+1}
  } {#UnVar SomeoneElseFires};
  MirianiSoundPlay Standard Ship\Combat\OtherDestroyed*11~@Ext;
- #Var ComputerSaid {Target destroyed.}
+DisplayPrint 8 {Target Destroyed} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
 |
 Direct hit. Target was not destroyed.^
  #If {~%Defined(SomeoneElseFires)=0} {#Math DirectHits {~@DirectHits+1}} {#UnVar SomeoneElseFires};
  mwplay Ship\Combat\OtherHit4~@Ext;
- #Var ComputerSaid {Direct hit.}
+DisplayPrint 8 {Direct hit} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
 |
 Push pulse device destroyed safely.^MirianiSoundPlay Standard Ship\Combat\OtherDestroyed*11~@Ext
 |
@@ -153,10 +155,13 @@ Turret* locking onto *.^
  #If {~@UseAlternativeCombatSounds=1 AND ~%Pos(Praelor,~@Wildcard2)>0} {MirianiSoundPlay Standard Ship\Combat\FireAtPraelor~@Ext};
  #If {~%Replace(~@Wildcard2,~~",)="empty space"} {
   MirianiSoundPlay Standard General\Misc\Cancel@Ext;
-  #Var ComputerSaid {Nothing targeted.}
+DisplayPrint 8 {Nothing targeted} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
  } {
   MirianiSoundPlay Standard Ship\Combat\WeaponsLocked~@Ext;
-  MirianiSoundPlay Standard Ship\Computer\Keyboard*15~@Ext
+  MirianiSoundPlay Standard Ship\Computer\Keyboard*15~@Ext;
+DisplayPrint 8 {Turret~@Wildcard1 locking onto ~@Wildcard2.} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
  }
 %Chr(250)
 Bardenium Cannon* locked on *. Firing.^
@@ -164,22 +169,35 @@ Bardenium Cannon* locked on *. Firing.^
  #If {~@UseAlternativeCombatSounds=1 AND ~%Pos(Praelor,~@Wildcard2)>0} {MirianiSoundPlay Standard Ship\Combat\FireAtPraelor~@Ext};
  MirianiSoundPlay Standard Ship\Combat\WeaponsLocked~@Ext;
  MirianiSoundPlay Standard Ship\Computer\Keyboard*15~@Ext;
- #Var ComputerSaid {Cannon~@Wildcard1 locked on ~@Wildcard2.};
+DisplayPrint 8 {Cannon~@Wildcard1 locked on ~@Wildcard2.} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString};
  #If {~%Defined(CannonsSalvoSize)=1} {
   #Math CannonsAvailableBard {~@CannonsAvailableBard-~@CannonsSalvoSize};
   #If {~@CannonsAvailableBard<=0} {MirianiSoundPlay Standard Ship\Combat\NoBard~@Ext}
  }
 %Chr(250)
 Hit on *.^
+ GetWildcardValues {~@ComputerAction} {~@ComputerSaid};
  #If {~%Defined(SomeoneElseFires)=0} {#Math DirectHits {~@DirectHits+1}} {#UnVar SomeoneElseFires};
  mwplay Ship\Combat\OtherHit5~@Ext;
- #If {~@MissionMode=1 and ~%Pos(Hit on Ontanka starship Praelor ,~@ComputerSaid)=1} {#Var ComputerSaid {Hit on ~%Copy(~@ComputerSaid,33)}}
+ #If {~@MissionMode=1 and ~%Pos(Hit on Ontanka starship Praelor ,~@ComputerSaid)=1} {
+DisplayPrint 8 {Hit on ~%Copy(~@ComputerSaid,33)} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
+};
+DisplayPrint 8 {Hit on ~@Wildcard1} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
 %Chr(250)
 Partial hit on *.^
+ GetWildcardValues {~@ComputerAction} {~@ComputerSaid};
  #If {~%Defined(SomeoneElseFires)=0} {#Math PartialHits {~@PartialHits+1}} {#UnVar SomeoneElseFires};
  mwplay Ship\Combat\OtherHit3~@Ext;
  MirianiSoundPlay Standard Ship\Combat\PartialHit~@Ext 20;
- #If {~@MissionMode=1 and ~%Pos(Partial hit on Ontanka starship Praelor ,~@ComputerSaid)=1} {#Var ComputerSaid {Partial hit on ~%Copy(~@ComputerSaid,41)}}
+ #If {~@MissionMode=1 and ~%Pos(Partial hit on Ontanka starship Praelor ,~@ComputerSaid)=1} {
+DisplayPrint 8 {Partial hit on ~%Copy(~@ComputerSaid,41)} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
+};
+DisplayPrint 8 {Hit on ~@Wildcard1} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
 %Chr(250)
 * destroyed.^
  #If {~%Pos(Direct hit. ,~@ComputerSaid)=1} {
@@ -202,17 +220,23 @@ Partial hit on *.^
   }
  }
 %Chr(250)
-* is locking onto empty space.^MirianiSoundPlay Standard General\Misc\Cancel~@Ext
+* is locking onto empty space.^MirianiSoundPlay Standard General\Misc\Cancel~@Ext;
+ GetWildcardValues {~@ComputerAction} {~@ComputerSaid};
+DisplayPrint 8 {~@Wildcard1 is locking onto empty space.} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
 %Chr(250)
 Long-Range Laser * is locking onto *.^
  GetWildcardValues {~@ComputerAction} {~@ComputerSaid};
  #If {~@UseAlternativeCombatSounds=1 AND ~%Pos(Praelor,~@Wildcard2)>0} {MirianiSoundPlay Standard Ship\Combat\FireAtPraelor~@Ext};
  #If {~%Replace(~@Wildcard2,~~",)="empty space"} {
   MirianiSoundPlay Standard General\Misc\Cancel~@Ext;
-  #Var ComputerSaid {Nothing targeted.}
+DisplayPrint 8 {Nothing targeted} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
  } {
   MirianiSoundPlay Standard Ship\Combat\WeaponsLocked~@Ext;
-  MirianiSoundPlay Standard Ship\Computer\Keyboard*15~@Ext
+  MirianiSoundPlay Standard Ship\Computer\Keyboard*15~@Ext;
+DisplayPrint 8 {Long-Range Laser ~@Wildcard1 is locking onto ~@Wildcard2} {~@ComputerSaid};
+ #Var ComputerSaid {~@DisplayString}
  }
 %Chr(250)
 Intruder alert! *^MirianiSoundPlay Standard Ship\Combat\Intruder~@Ext
@@ -472,7 +496,7 @@ The game has ended! The winner is *^
  #Sub {@ComputerSaid};
  #UnVar ShipComputerTmp1;
  #UnVar ShipComputerTmp2
-} {Main|Starship}
+} {Main}
 #Trigger {* presses a button on a navigation console and examines the display.} {
  MirianiSoundPlay Standard Ship\Computer\Keyboard*15@Ext;
  #Sub {%1 checks the navigation console.}

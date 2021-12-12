@@ -3,9 +3,8 @@
 #Var ScanFormatVarLabels {@ScanOutputLabels|Alliance|Name|New|Number of Occupants|Object Type|Organization}
 #Var ScanFormatVarLabels {%Sort(@ScanFormatVarLabels,0)}
 #Var ScanFormatVars {%Replace(@ScanFormatVarLabels, ,)}
-
-#Alias sc {shipscan sc {%0}} {Starship}
-#Alias scan {shipscan scan {%0}} {Starship}
+#Alias {sc} {shipscan sc {%0}} {}
+#Alias {scan} {shipscan scan {%0}} {}
 #Alias shipscan {
  #Var ScanTarget {%Trim(%2)};
  #Var ScanFilter {%Trim(%3)};
@@ -161,7 +160,7 @@
 #Trigger {That object was not found.} {
  msplay Ship\Computer\NothingToScan@Ext;
  MainTrigSwitch 1
-} {Main|Starship}
+} {Main|Scanning}
 #Trigger {You'll have better results scanning in space.} {MainTrigSwitch 1} {Main|Starship}
 
 #Alias sca {shipscan sc {%RTrim( %0)} {Average Component Damage}}

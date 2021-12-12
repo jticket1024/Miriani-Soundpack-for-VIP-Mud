@@ -1,3 +1,9 @@
+Version 5.15.5
+Script update
+*SC and SCAN are now tied to the (scanning) class, so will work anywhere where scanning is permitted
+*Computer report messages should now work outside a starship for things like blockades, prox, etc being launched.
+*There is now a hastily put together virtual display for weapon fire, however it doesn't differentiate between you or another person as of yet so its probably just a spam reducer for now. vd 8
+
 Version 5.15.4
 This is just a script update, no need to redownload sounds
 *Fixed the required sounds version with the publishing script, it should work now, wups
