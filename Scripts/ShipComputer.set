@@ -183,9 +183,10 @@ Hit on *.^
  #If {~@MissionMode=1 and ~%Pos(Hit on Ontanka starship Praelor ,~@ComputerSaid)=1} {
 DisplayPrint 8 {Hit on ~%Copy(~@ComputerSaid,33)} {~@ComputerSaid};
  #Var ComputerSaid {~@DisplayString}
-};
+} {
 DisplayPrint 8 {Hit on ~@Wildcard1} {~@ComputerSaid};
  #Var ComputerSaid {~@DisplayString}
+}
 %Chr(250)
 Partial hit on *.^
  GetWildcardValues {~@ComputerAction} {~@ComputerSaid};
@@ -195,9 +196,10 @@ Partial hit on *.^
  #If {~@MissionMode=1 and ~%Pos(Partial hit on Ontanka starship Praelor ,~@ComputerSaid)=1} {
 DisplayPrint 8 {Partial hit on ~%Copy(~@ComputerSaid,41)} {~@ComputerSaid};
  #Var ComputerSaid {~@DisplayString}
-};
-DisplayPrint 8 {Hit on ~@Wildcard1} {~@ComputerSaid};
+} {
+DisplayPrint 8 {Partial hit on ~@Wildcard1} {~@ComputerSaid};
  #Var ComputerSaid {~@DisplayString}
+}
 %Chr(250)
 * destroyed.^
  #If {~%Pos(Direct hit. ,~@ComputerSaid)=1} {

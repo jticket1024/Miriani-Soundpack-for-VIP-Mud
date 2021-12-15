@@ -1,3 +1,7 @@
+Version 5.15.6
+Script update
+*Fixed the bug with  hit on, and partial hit on messages, with both normal ships and praelor ones.
+
 Version 5.15.5
 Script update
 *SC and SCAN are now tied to the (scanning) class, so will work anywhere where scanning is permitted
