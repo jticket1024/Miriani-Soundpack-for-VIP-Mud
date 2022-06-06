@@ -1,3 +1,9 @@
+Version 5.15.7, released 2022-06-06
+*Sorry I neglected the time stamps with releases, they'll be here from now on
+*Added new artifacts to the list, but if you have more comm Devante
+*added praelor muijfrlna to proxiani
+*Fixed roar for *OOC communication, and other places that use emoting OOB messages
+
 Version 5.15.6
 Script update
 *Fixed the bug with  hit on, and partial hit on messages, with both normal ships and praelor ones.

@@ -25,7 +25,7 @@ moan:moans:General\Socials\Moan*F5|M2
 orgasm:orgasms:General\Socials\Orgasm*F6|M2
 poke:prod:General\Socials\poke
 punch:General\Socials\punch*20
-roar:roars:General\Socials\roar*3
+roar:roars:roaring:General\Socials\roar*3
 rofl:General\Socials\rofl*F2|M3
 scream:screams:bellow:bellows:General\Socials\Scream*F9|M5
 shriek:shrieks:General\Socials\Shriek*F2|M0
@@ -63,6 +63,7 @@ orgasms|climaxes|climaxing:General\Socials\Orgasm*F6|M2
 pokes|poking:General\Socials\poke
 pukes|puking:General\Socials\vomit
 punches|punching:General\Socials\punch*20
+roar|roars|roaring:General\Socials\roar*3
 screams|screaming:General\Socials\Scream*F9|M5
 shrieks|shrieking:General\Socials\Shriek*F2|M0
 sighs|sighing:General\Socials\sigh*6

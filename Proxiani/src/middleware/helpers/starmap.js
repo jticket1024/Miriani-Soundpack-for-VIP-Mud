@@ -34,6 +34,7 @@ const shipPriorities = [
  'Mugana',
  'Urtra',
  'Kritzn',
+ 'Muijfrlna',
  'Ortamu',
  'Frnalk',
  'Frnazalk',
