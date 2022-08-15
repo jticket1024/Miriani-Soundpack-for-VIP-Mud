@@ -1,8 +1,14 @@
+Version 5.15.8, Released 2022-08-15
+*Added a new command. ALIST will now toggle if the AMAP output on asteroids will display in single line or list form.
+*Fixed the surveying modes. It gags properly now
+*Fixed the laser tag bug, thanks to Ali McKenzie for reporting it
+
 Version 5.15.7, released 2022-06-06
 *Sorry I neglected the time stamps with releases, they'll be here from now on
 *Added new artifacts to the list, but if you have more comm Devante
 *added praelor muijfrlna to proxiani
 *Fixed roar for *OOC communication, and other places that use emoting OOB messages
+*Added experimental logplay feature in proxiani (type logplay when connected to see the commands)
 
 Version 5.15.6
 Script update

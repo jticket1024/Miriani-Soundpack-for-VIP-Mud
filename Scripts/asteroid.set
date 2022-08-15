@@ -1,3 +1,5 @@
+#If {%Defined(AsterDel)=0} {#Var AsterDel {. }};
+#If {%Defined(@ListAsteroidObjects)=0} {#Var ListAsteroidObjects {1}};
 #Var Surveying 0
 #Trigger {Upon finding a suitable location, you press a small button on the side of an asteroid anchor, which forcefully buries itself into the ground.} {
  #GagLine 1 ALL;
@@ -10,6 +12,20 @@
 #Trigger {You accelerate the vehicle *. Navigation instruments instruct you that your coordinates are now *.} {
  DontStopSpeaking;
  #If {%IfWord(%1,@DirList, )=1} {#Sub {[%2]}}
+} {Main}
+
+#Alias alist {
+#If {@ListAsteroidObjects=1} {
+#Var AsterDel {%CrLf};
+#Var ListAsteroidObjects 2;
+#Say {Listing objects with the amap command in list view};
+} {
+#If {@ListAsteroidObjects=2} {
+#Var AsterDel {. };
+#Var ListAsteroidObjects 1;
+#Say {Listing objects with the AMAP command in single line view}
+}
+}
 } {Main}
 
 #Alias {surveying} {
@@ -27,6 +43,7 @@
  #Say {Surveying mode disabled. All objectes will be shown.}
 } {Main}
 #Trigger {[{]*, *} (*)} {#If {@Surveying = 1} {#GagLine 1 all}} {Main|NotStarship}
+#Trigger {*[:] [{]*, *}} {#If {@Surveying = 1} {#GagLine 1 all}} {Main|NotStarship}
 #Trigger {You pull a cord out of a bulky diagnostic device and plug it into an available port on *.} {
  msplay General\Asteroid\Diag@Ext;
  #GagLine 1 All
@@ -161,11 +178,19 @@
     #Var AsteroidObjectDirs {@AsteroidTmp1%Proper(@AsteroidTmp3), @AsteroidTmp2%Proper(@AsteroidTmp4)}
    }
   };
+#If {@ListAsteroidObjects=2} {
+  #If {@AsteroidObjectList=""} {
+   #Var AsteroidObjectList {Objects:%{CrLf}@AsteroidObjectDirs}
+  } {
+   #Var AsteroidObjectList {%Replace(@@AsteroidObjectList@AsterDel@AsteroidObjectDirs,Objects: ,Objects:{%CrLf})}
+  }
+} {
   #If {@AsteroidObjectList=""} {
    #Var AsteroidObjectList {Objects: @AsteroidObjectDirs}
   } {
-   #Var AsteroidObjectList {@@AsteroidObjectList@AtSaBetweenObjects@AsteroidObjectDirs}
+   #Var AsteroidObjectList {@@AsteroidObjectList@AsterDel@AsteroidObjectDirs}
   }
+}
  };
  #Sub {@AsteroidObjectList.};
  #Class AMap disable

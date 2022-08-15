@@ -10,7 +10,6 @@
  #Sub {Boxes are here.}
 } {Main}
 #Trigger {You quickly hide behind a large holographic box.} {msplay LaserTag\Box@Ext} {Main}
-#Trigger {You settle into your hiding place.} { msplay crouch@Ext} {Main}
 #Trigger {You emerge from hiding.} {msplay Uncrouch@Ext} {Main}
 #Trigger {You pull the pin from a grenade and *.} {msplay LaserTag\Grenade@Ext} {Main}
 #Trigger {The shot hits *!} {mwplay LaserTag\Hit*3@Ext} {Main}

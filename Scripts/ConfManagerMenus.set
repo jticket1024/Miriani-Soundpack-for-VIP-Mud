@@ -88,9 +88,10 @@ AlertOnUpdate|B
 [6] Gag "I don't understand that" messages  [~%If(~@GagDontUnderstandMessages=1,On,Off)].
 [7] String to replace the line "You see nothing special."  [~@NoDescString].
 [8] Gag the description of asteroid rooms  [~%If(~@GagRoidDesc=1,On,Off)].
-[9] Surveying mode (for use with mineral scanners)  [~%Case(~%Eval(~@Surveying+1),Off,Surveying,Review)].
-[10] Gag the name of holographic avatars  [~%If(~@GagAvatars=1,On,Off)].
-[11] Voice gag navigation commands by others  [~%If(~@GagManNav=1,On,Off)].
+[9] Display type for object directions with the AMAP command  [~%If(~@ListAsteroidObjects=1,List form,Single Line)].
+[10] Surveying mode (for use with mineral scanners)  [~%Case(~%Eval(~@Surveying+1),Off,Surveying,Review)].
+[11] Gag the name of holographic avatars  [~%If(~@GagAvatars=1,On,Off)].
+[12] Voice gag navigation commands by others  [~%If(~@GagManNav=1,On,Off)].
 %Chr(250)
 GagTreadLine|B
 GagGenMessages|B
@@ -100,6 +101,7 @@ RoundTimeThreshold|N:1
 GagDontUnderstandMessages|B
 NoDescString|S|Enter a new format string for the "You see nothing special" message|Use _gag_ (underscore gag underscore) to gag the line, or a single space to leave it alone.
 GagRoidDesc|B
+ListAsteroidObjects|C:0,Single line view,1^List view
 Surveying|C:0,Off^1,Surveying mode^2,Reviewing mode
 GagAvatars|B
 GagManNav|B
