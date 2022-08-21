@@ -399,3 +399,52 @@ DisplayPrint 8 {%1 fiercely inputs commands into a firing control console.} {%0}
  #Sub {Sensor interruption pulse fired.}
 } {Main}
 #Trigger {Praelor * has fired unidentified weaponry.} {msplay LaserTag\Gun*3@Ext} {Main}
+#Trigger {You feel the pull of acceleration as the ship begins to maneuver evasively through the atmosphere of a planet.} {
+msplay {ship\Misc\metalstress@Ext};
+} {Main};
+#Trigger {The artificial gravity momentarily fluctuates as the ship lurches to avoid contact with *.} {
+msplay {Ship\Combat\Reflectors*3@Ext};
+#If {%IfWord(laser fire,%1, )} {
+msplay {Ship\Combat\Rebound*5@Ext};#Pc %PlayHandle pan {%Random(-4000,4000)}
+};
+#If {%IfWord(bardenium,%1, )} {
+msplay {Ship\Misc\InternalExpl*12@Ext};#Pc %PlayHandle pan {%Random(-4000,4000)}
+}
+} {Main};
+#Trigger {The ship shudders violently as * slam*into *.} {
+msplay {Ship\Combat\Reflectors*3@Ext};
+msplay {Ship\Combat\YouHit*11@Ext};
+#If {%IfWord(laser fire,%1, )} {
+msplay {Ship\Combat\Rebound*5@Ext};#Pc %PlayHandle pan {%Random(-4000,4000)}
+};
+#If {%IfWord(bardenium,%1, ) OR %IfWord(missiles,%1, )} {
+msplay {Ship\Misc\InternalExpl*12@Ext};#Pc %PlayHandle pan {%Random(-4000,4000)}
+}
+} {Main};
+#Trigger {The ship veers sharply as it attempts to evade *.} {
+msplay {Ship\Misc\MetalStress@Ext};
+#If {%IfWord(laser fire,%1, )} {
+msplay {Ship\Combat\Rebound*5@Ext};#Pc %PlayHandle pan {%Random(-4000,4000)}
+};
+#If {%IfWord(bardenium,%1, )} {
+msplay {Ship\Misc\InternalExpl*12@Ext};#Pc %PlayHandle pan {%Random(-4000,4000)}
+}
+} {Main};
+#Trigger {The ship makes a sudden gut-wrenching dive in an attempt to evade *.} {
+msplay {Ship\Misc\MetalStress@Ext};
+#If {%IfWord(laser fire,%1, )} {
+msplay {Ship\Combat\Rebound*5@Ext};#Pc %PlayHandle pan {%Random(-4000,4000)}
+};
+#If {%IfWord(bardenium,%1, )} {
+msplay {Ship\Misc\InternalExpl*12@Ext};#Pc %PlayHandle pan {%Random(-4000,4000)}
+}
+} {Main};
+#Trigger {The world outside the window suddenly begins to swirl as the ship rolls in an attempt to minimize contact with *.} {
+msplay {Ship\Misc\MetalStress@Ext};
+#If {%IfWord(laser fire,%1, )} {
+msplay {Ship\Combat\Rebound*5@Ext};#Pc %PlayHandle pan {%Random(-4000,4000)}
+};
+#If {%IfWord(bardenium,%1, )} {
+msplay {Ship\Misc\InternalExpl*12@Ext};#Pc %PlayHandle pan {%Random(-4000,4000)}
+}
+} {Main}

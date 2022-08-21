@@ -1,3 +1,7 @@
+Version 5.15.9, Released 2022-08-21
+*Added sounds for the various asteroid mining warnings, but no doubt missed one so bug me if so.
+*Added sounds to the landing messages you get when trying to land on a planet with anomalies.
+
 Version 5.15.8, Released 2022-08-15
 *Added a new command. ALIST will now toggle if the AMAP output on asteroids will display in single line or list form.
 *Fixed the surveying modes. It gags properly now
