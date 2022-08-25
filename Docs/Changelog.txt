@@ -1,3 +1,7 @@
+Version 5.15.10, Released 2022-08-25
+*Frnalk will now act like any other starship with the SC filters
+*The output from the ABOUT command is filtered properly
+
 Version 5.15.9, Released 2022-08-21
 *Added sounds for the various asteroid mining warnings, but no doubt missed one so bug me if so.
 *Added sounds to the landing messages you get when trying to land on a planet with anomalies.

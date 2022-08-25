@@ -322,7 +322,7 @@ I have aborted the repair of *.^
  GetWildcardValues {~@ComputerAction} {~@ComputerSaid};
  #Var ComputerSaid {Aborted repair of ~@Wildcard1.}
 %Chr(250)
-This vessel is of the * design. It was manufactured on * at * and commissioned by *. The vessel came under licensed control on * and is presently licensed to *.^
+This  vessel is of the * design. It was manufactured on * at * and commissioned by *. The vessel came under licensed control on * and is presently licensed to *.^
  #Var PlayComputerSound 1;
  GetWildcardValues {~@ComputerAction} {~@ComputerSaid};
  #Var ComputerSaid {This ~@Wildcard1 is presently licensed to ~@Wildcard6.~%{CRLF}It came under licensed control on ~@Wildcard5.~%{CRLF}It was manufactured on ~@Wildcard2 at ~@Wildcard3, and commissioned by ~@Wildcard4.};
