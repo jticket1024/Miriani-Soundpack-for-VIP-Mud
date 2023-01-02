@@ -1,3 +1,9 @@
+Version 5.15.11, Released 2023-01-02
+Happy new year everybody! Sorry Its been a bit quiet recently, but here are some bug fixes and changes to kick off the month of Jan.
+*The soundpack will once again recognise your weapon being empty, along with others, and play the appropriate sound.
+*The OOB text seen in the soundpack when firing your gun has been fixed. This also fixes a lot of issues with sounds not being played or sounds being played inappropriately. Please let me know if anything broke.
+*The soundpack will now process the starmap nearest OOB messages, if you choose to use the games built in SMC command.
+
 Version 5.15.10, Released 2022-08-25
 *Frnalk will now act like any other starship with the SC filters
 *The output from the ABOUT command is filtered properly

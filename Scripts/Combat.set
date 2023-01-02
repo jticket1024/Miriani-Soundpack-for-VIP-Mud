@@ -8,6 +8,9 @@
  #Class GunFire Enable
 }
 #Trigger {*} {
+ #If {%Pos(#$#soundpack weapon,%0)=1} {
+#Abort
+};
  #Var PlayGunSound 1;
  #If {%Pos(The shot is partially absorbed by,%0)=1} {
   #UnVar PlayGunSound;
@@ -144,7 +147,7 @@
    #UnVar PlayGunSound;
    MGunPlay @Gun @Randomise
   };
-  #If {%Defined(GunOutput)=0} {#Var GunOutput {@StandardGunOutput %0}};
+#If {%Defined(GunOutput)=0} {#Var GunOutput {@StandardGunOutput %0}};
   #If {%Defined(GunBufferedOutput)=1} {
    #Var GunOutput {@GunOutput%CRLF@GunBufferedOutput};
    #UnVar GunBufferedOutput
@@ -294,7 +297,8 @@ DisplayPrint 7 {@GunOutput} {%0};
   }
  }
 } {Main}
-#Trigger {A* clicks oddly. It must be out of ammo.} {msplay General\Combat\EmptyGun@Ext} {Main}
+#Trigger {A* clicks oddly. It must be out of ammo.} {msplay General\Combat\EmptyGun@Ext} {Main};
+#Trigger {Your weapon clicks oddly. It must be out of ammo.} {msplay General\Combat\EmptyGun@Ext} {Main}
 #Trigger {* suddenly begins to power down.} {
  msplay General\Combat\Shutdown*4@Ext;
  #Sub {%1 powers down.}

@@ -113,6 +113,17 @@
  #If {@CommandEcho=1} {#Config DisplayCommandsInOutput True}
 }
 
+#Trigger {[#]$[#]soundpack starmap *} {
+#If {%Pos(nearest,%1)>0} {
+#If {%Word(%1, ,2)=1} {
+msplay General\Misc\Beep10@Ext
+} {
+#If {%Word(%1, ,2)=0} {
+msplay Ship\Combat\Intruder@Ext
+}
+}
+}
+};
 #Alias ProcessPXMsg {
  #If {%Defined(LastPXMessage)=0} {#Class PX Enable};
  #Var LastPXMessage {%1};
