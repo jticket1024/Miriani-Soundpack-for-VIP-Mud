@@ -1,3 +1,7 @@
+Version 5.15.12, Released 2023-01-10
+This is just a proxiani fix.
+*Fixed a pretty annoying bug with proxiani that wouldn't allow people to connect to proxiani if they were using a version later than v16.9
+
 Version 5.15.11, Released 2023-01-02
 Happy new year everybody! Sorry Its been a bit quiet recently, but here are some bug fixes and changes to kick off the month of Jan.
 *The soundpack will once again recognise your weapon being empty, along with others, and play the appropriate sound.
