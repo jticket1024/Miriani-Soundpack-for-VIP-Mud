@@ -272,8 +272,10 @@ a vacuum-sealed packet of frozen food resembling star-shaped cookies:3,000,000:2
 a flexible plastic sheet with a milky surface:5,000,000:2
 a flexible plastic sheet depicting the faded image of a bipedal organism's internal organ structure:100,000,000:3.5
 a torn plastic sheet depicting the faded image of what appears to be an animal's digestive tract:20,000,000:2
-A cone-shaped crystal emitting a red light:50,000,000:5
-A cone-shaped crystal emitting a blue light:50,000,000:5
+a cone-shaped crystal emitting a red light:50,000,000:5
+a cone-shaped crystal emitting a blue light:50,000,000:5
+a thin transparent cylinder containing iridescent liquid:36,000,000:2
+a nondescript piece of chipped plastic with several metal contacts on its surface:40,000,000:3
 }
 #Trigger {You snatch * from the cold, cruel hands of space.} {
  msplay General\Misc\SnatchArtifact*2@Ext;

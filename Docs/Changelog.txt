@@ -1,3 +1,12 @@
+Version 5.15.14, Released 2023-12-06
+*Fixed the prompt for real I hope. Users of proxiani will now hear the sound when using conf, users who do not will not notice a difference. I did not update proxiani, it still uses the grave accent character (`) but miriani uses apostrophies (').
+
+Version 5.15.13, Released 2023-12-06
+*Fixed the prompt in the message boards causing quite a lot of problems. Its probably in other places as well, but I'm unsure.
+*The about command string was changed again. I fixed it to format it as it was before the change, but if its changed again I'll just leave it.
+*Added 2 new artifacts to the list. If you have more that aren't there, comm me.
+*I'm no longer updating the github. If there is heavy interest for me to bring it back I will. Its just easier to update the dropbox folder and the download folder for now.
+
 Version 5.15.12, Released 2023-01-10
 This is just a proxiani fix.
 *Fixed a pretty annoying bug with proxiani that wouldn't allow people to connect to proxiani if they were using a version later than v16.9
