@@ -57,9 +57,10 @@ const shipPriorities = [
  'Trajrrk',
  'Friziti',
  'Potateoton',
+ 'Frelhaza',
 ];
 
-const typeTitles = ['Accelerators', 'Artifacts', 'Asteroids', 'Blockades', 'Buoys', 'Combat Drones', 'Control Beacons', 'Debris', 'Dry Docks', 'Interdictors', 'Jumpgates', 'Missiles', 'Mobile Platforms', 'Moons', 'Pellets', 'Planets', 'Private Moons', 'Private Planets', 'Private Space Stations', 'Proximity Weapons', 'Relics', 'Satellites', 'Space Stations', 'Stars', 'Starships', 'Unknown', 'Wormholes'];
+const typeTitles = ['Accelerators', 'Artifacts', 'Asteroids', 'Blockades', 'Buoys', 'Combat Drones', 'Control Beacons', 'Debris', 'Dry Docks', 'Interdictors', 'Jumpgates', 'Long-range Communication Beacons', 'Missiles', 'Mobile Platforms', 'Moons', 'Pellets', 'Planets', 'Private Moons', 'Private Planets', 'Private Space Stations', 'Proximity Weapons', 'Relics', 'Satellites', 'Space Stations', 'Stars', 'Starships', 'Unknown', 'Wormholes'];
 const types = typeTitles.map(objectType => objectType.toLowerCase());
 const findType = text => {
  if (text.length === 0) return;
